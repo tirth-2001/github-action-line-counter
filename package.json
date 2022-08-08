@@ -1,11 +1,19 @@
 {
-  "name": "github-action-line-counter",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/tirth-2001/github-action-line-counter.git",
-  "license": "MIT",
-  "dependencies": {
-    "@actions/core": "^1.9.0",
-    "@actions/github": "^5.0.3"
-  }
+	"name": "github-action-line-counter",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/tirth-2001/github-action-line-counter.git",
+	"license": "MIT",
+	"dependencies": {
+		"@actions/core": "^1.9.0",
+		"@actions/github": "^5.0.3",
+		"pre-commit": "^1.2.2"
+	},
+	"scripts": {
+		"build": "ncc build index.js --license licenses.txt",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"pre-commit": [
+		"build"
+	]
 }
