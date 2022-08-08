@@ -1,0 +1,11 @@
+{
+  "name": "github-action-line-counter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/tirth-2001/github-action-line-counter.git",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.9.0",
+    "@actions/github": "^5.0.3"
+  }
+}
