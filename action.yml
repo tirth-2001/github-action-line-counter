@@ -3,8 +3,6 @@ description: 'Count total project files lines in workspace'
 outputs:
   files: # id of output
     description: 'Total project files in workspace'
-  worksSpace: # id of output
-    description: 'Workspace name'
 runs:
   using: 'node16'
   main: 'dist/index.js'

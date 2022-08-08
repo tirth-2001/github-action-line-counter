@@ -14,4 +14,4 @@ jobs:
         id: countCode
       # Use the output from the `countCode` step
       - name: Get the files count
-        run: echo "Total project files in workspace ${{ steps.countCode.outputs.workSpace }} is ${{ steps.countCode.outputs.files }}"
+        run: echo "Total project files in workspace ${{ github.workspace }} is ${{ steps.countCode.outputs.files }}"
