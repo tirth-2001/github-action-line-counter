@@ -8841,6 +8841,14 @@ module.exports = eval("require")("encoding");
 
 /***/ }),
 
+/***/ 9658:
+/***/ ((module) => {
+
+module.exports = eval("require")("glob");
+
+
+/***/ }),
+
 /***/ 9491:
 /***/ ((module) => {
 
@@ -9004,6 +9012,8 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(9110)
 const github = __nccwpck_require__(7721)
+const path = __nccwpck_require__(1017)
+const glob = __nccwpck_require__(9658)
 
 try {
 	// `who-to-greet` input defined in action metadata file
@@ -9011,9 +9021,12 @@ try {
 	console.log(`Hello ${nameToGreet}!`)
 	const time = new Date().toTimeString()
 	core.setOutput('time', time)
-	// Get the JSON webhook payload for the event that triggered the workflow
-	const payload = JSON.stringify(github.context.payload, undefined, 2)
-	console.log(`The event payload: ${payload}`)
+	const workSpace = github.context.workspace
+	core.setOutput('workspace', workSpace)
+
+	// access the github repository and count JS,TS,JSX,TSX files
+	const files = glob.sync(path.join(workSpace, '**/*.+(js|jsx|ts|tsx)'))
+	core.setOutput('files', files.length)
 } catch (error) {
 	core.setFailed(error.message)
 }
