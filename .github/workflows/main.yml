@@ -1,19 +1,17 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  count_lines:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Count Code Lines
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Hello world action step
+      - name: Count Lines of Code
         uses: ./ # Uses an action in the root directory
-        id: hello
-        with:
-          who-to-greet: 'Tirth Patel'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        id: countCode
+      # Use the output from the `countCode` step
+      - name: Get the files count
+        run: echo "Total project files in workspace ${{ steps.countCode.outputs.workSpace }} is ${{ steps.countCode.outputs.files }}"

@@ -4,12 +4,9 @@
 	"main": "index.js",
 	"repository": "https://github.com/tirth-2001/github-action-line-counter.git",
 	"license": "MIT",
-	"dependencies": {
-		"@actions/core": "^1.9.0",
-		"@actions/github": "^5.0.3",
-		"pre-commit": "^1.2.2"
-	},
 	"scripts": {
+		"start": "node index.js",
+		"dev": "nodemon index.js",
 		"build": "ncc build index.js --license licenses.txt",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"add-build": "git add dist"
@@ -17,5 +14,14 @@
 	"pre-commit": [
 		"build",
 		"add-build"
-	]
+	],
+	"dependencies": {
+		"@actions/core": "^1.9.0",
+		"@actions/github": "^5.0.3",
+		"glob": "^8.0.3",
+		"pre-commit": "^1.2.2"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.19"
+	}
 }

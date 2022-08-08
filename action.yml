@@ -1,13 +1,10 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
-inputs:
-  who-to-greet: # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
+name: 'Count Code Lines'
+description: 'Count total project files lines in workspace'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  files: # id of output
+    description: 'Total project files in workspace'
+  worksSpace: # id of output
+    description: 'Workspace name'
 runs:
   using: 'node16'
   main: 'dist/index.js'
